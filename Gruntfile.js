@@ -29,7 +29,7 @@ module.exports = function(grunt){
     less:{
       build:{
         files: {
-          "build/css/style.css": "less/style.less"
+          "css/style.css": "less/style.less"
         }
       }
     },
@@ -48,7 +48,7 @@ module.exports = function(grunt){
     csscomb:{
       build:{
         options:{
-          config: "config.json"
+          config: "csscomb.json"
         },
         files: {
           "build/css/style.css": ["build/css/style.css"],
@@ -78,17 +78,29 @@ module.exports = function(grunt){
     },
 
     /* Оптимизируем картинки  */
-    imagemin:{
-      build:{
+    // imagemin:{
+    //   build:{
+    //     options: {
+    //       optimizationLevel: 3
+    //     },
+    //     files: [{
+    //       expand: true,
+    //       src: ["build/img/**/*.{png, jpg, gif, svg}"]
+    //     }]
+    //   }
+    // },
+
+    /* watch */
+    watch: {
+      less: {
+        files: ['**/*.less','*.html','**/*.js'],
+        tasks: ['less' ],
         options: {
-          optimizationLevel: 3
+          spawn: false,
         },
-        files: [{
-          expand: true,
-          src: ["build/img/**/*.{png, jpg, gif, svg}"]
-        }]
-      }
-    },
+      },
+    }
+
   });
 
   // proj.registerTask("default",
@@ -99,8 +111,7 @@ module.exports = function(grunt){
   //     "autoprefixer",
   //     "csscomb",
   //     "cssmin",
-  //     "uglify",
-  //     "imagemin"
+  //     "uglify"
   //   ]
   // );
 
