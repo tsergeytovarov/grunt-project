@@ -29,21 +29,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // jade compille
-    jade: {
-      style: {
-        options: {
-          data: {
-            debug: false
-          }
-        },
-        pretty: true,
-        files: {
-          "build/index.html": "src/jade/pages/index.jade"
-        }
-      }
-    },
-
     // автопрефиксер
     autoprefixer: {
       options: {
