@@ -197,7 +197,6 @@ module.exports = function(grunt) {
 
   // базовый таск
   grunt.registerTask('default', [
-    'jade',
     'less',
     'autoprefixer',
     'copy:css_min',

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "description": "Template for frontend develop base on Gulp",
-  "devDependencies": {
+  "dependencies": {
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^1.0",
     "grunt-browser-sync": "^2.0.0",
@@ -20,12 +20,11 @@
     "type": "git",
     "url": "https://github.com/tsergeytovarov/grunt-project.git"
   },
-  "author": "Sergey Popov <tivarov.piter@gmail.com>",
+  "author": "Sergey Popov <tovarov.piter@gmail.com>",
   "bugs": {
     "url": "https://github.com/tsergeytovarov/grunt-project"
   },
   "homepage": "https://github.com/tsergeytovarov/grunt-project",
   "devDependencies": {
   }
-}
 }
