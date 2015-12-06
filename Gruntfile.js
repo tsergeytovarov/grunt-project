@@ -95,7 +95,7 @@ module.exports = function(grunt) {
       img: {
         expand: true,
         cwd: 'src/img/',
-        src: ['*.{png,jpg,gif,svg}'],
+        src: ['**/*.{png,jpg,gif,svg}'],
         dest: 'build/img/',
       },
       html: {
@@ -174,7 +174,7 @@ module.exports = function(grunt) {
             'src/jade/*.jade',
             'build/css/*.css',
             'build/js/*.js',
-            'build/img/*.{png,jpg,gif,svg}',
+            'build/img/**/*.{png,jpg,gif,svg}',
             'build/*.html',
           ]
         },

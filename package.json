@@ -1,8 +1,8 @@
 {
   "name": "gulp-project-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
-  "description": "Template for frontend develop base on Gulp",
+  "description": "Template for frontend develop base on Grunt",
   "dependencies": {
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^1.0",
