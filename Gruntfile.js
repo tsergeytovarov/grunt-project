@@ -12,16 +12,16 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     sass: {
-        dist: {
-          options: {
-            sourcemap: 'inline',
-            style: 'expanded'
-          },
-          files: {
-            'css/style.css': 'src/style.scss'
-          }
+      dist: {
+        options: {
+          sourcemap: 'inline',
+          style: 'expanded'
+        },
+        files: {
+          'build/css/style.css': 'src/sass/style.scss'
         }
       }
+    },
 
     // автопрефиксер
     autoprefixer: {
@@ -192,6 +192,7 @@ module.exports = function(grunt) {
   // билдовый таск
   grunt.registerTask('build', [
     'clean:build',
+    'sass',
     'autoprefixer',
     'copy:css_min',
     'cssmin',
@@ -212,6 +213,7 @@ module.exports = function(grunt) {
 
   // только стили
   grunt.registerTask('style', [
+    'sass',
     'autoprefixer',
     'cssmin'
   ]);
@@ -220,7 +222,5 @@ module.exports = function(grunt) {
   grunt.registerTask('img', [
     'copy:img',
     'imagemin',
-    'autoprefixer',
-    'cssmin'
   ]);
 };
