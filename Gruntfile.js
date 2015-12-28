@@ -131,6 +131,13 @@ module.exports = function(grunt) {
       }
     },
 
+    htmllint: {
+      options: {
+        force: true
+      },
+      all: ['build/**/*.html']
+    },
+
     // отслеживаем изменений
     watch: {
       style: {
@@ -220,7 +227,8 @@ module.exports = function(grunt) {
     'csscomb',
     'cssmin',
     'uglify',
-    'imagemin'
+    'imagemin',
+    'htmllint'
   ]);
 
   // только стили
