@@ -34,6 +34,17 @@ module.exports = function(grunt) {
       }
     },
 
+    csscomb: {
+      style: {
+        options: {
+          config: 'csscomb.json'
+        },
+        files: {
+          'build/css/style.css': ['build/css/style.css']
+        }
+      }
+    },
+
     // сжатие css
     cssmin: {
       style: {
@@ -193,6 +204,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:build',
     'sass',
+    'csscomb',
     'autoprefixer',
     'copy:css_min',
     'cssmin',
