@@ -18,6 +18,7 @@
     "grunt-combine-media-queries": "^1.0.19",
     "grunt-html": "^5.0.1",
     "grunt-contrib-concat": "^0.5.1",
+    "grunt-include-replace": "^3.2.0",
     "load-grunt-tasks": "^3.0.0"
   },
   "repository": {
