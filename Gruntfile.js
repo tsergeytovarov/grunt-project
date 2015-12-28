@@ -142,7 +142,7 @@ module.exports = function(grunt) {
     // отслеживаем изменений
     watch: {
       style: {
-        files: ['src/sass/**/*.sass'],
+        files: ['src/sass/**/*.scss'],
         tasks: ['style'],
         options: {
           spawn: false,
