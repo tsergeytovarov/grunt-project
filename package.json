@@ -1,5 +1,5 @@
 {
-  "name": "gulp-project-template",
+  "name": "grunt-project-template",
   "version": "1.0.1",
   "license": "MIT",
   "description": "Template for frontend develop base on Grunt",
@@ -22,7 +22,7 @@
   },
   "author": "Sergey Popov <tovarov.piter@gmail.com>",
   "bugs": {
-    "url": "https://github.com/tsergeytovarov/grunt-project"
+    "url": "https://github.com/tsergeytovarov/grunt-project/issues"
   },
   "homepage": "https://github.com/tsergeytovarov/grunt-project",
   "devDependencies": {
