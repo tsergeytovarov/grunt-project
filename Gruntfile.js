@@ -11,6 +11,45 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.initConfig({
 
+    // очистка дирректории
+    clean: {
+      build: [
+        'build/css',
+        'build/img',
+        'build/js',
+        'build/font',
+        'build/*.html'
+      ]
+    },
+
+    // копирование
+    copy: {
+      js: {
+        expand: true,
+        cwd: 'src/js/',
+        src: ['**'],
+        dest: 'build/js/'
+      },
+      img: {
+        expand: true,
+        cwd: 'src/img/',
+        src: ['**/*.{png,jpg,gif,svg}'],
+        dest: 'build/img/'
+      },
+      html: {
+        expand: true,
+        cwd: 'src/',
+        src: ['*.html'],
+        dest: 'build/'
+      },
+      fonts: {
+        expand: true,
+        cwd: 'src/font/',
+        src: ['*.{eot,svg,woff,ttf}'],
+        dest: 'build/font/',
+      },
+    },
+
     sass: {
       dist: {
         options: {
@@ -90,52 +129,10 @@ module.exports = function(grunt) {
       }
     },
 
-    // очистка дирректории
-    clean: {
-      build: [
-        'build/css',
-        'build/img',
-        'build/js',
-        'build/*.html'
-      ]
-    },
-
-    // копирование
-    copy: {
-      js: {
-        expand: true,
-        cwd: 'src/js/',
-        src: ['**'],
-        dest: 'build/js/'
-      },
-      img: {
-        expand: true,
-        cwd: 'src/img/',
-        src: ['**/*.{png,jpg,gif,svg}'],
-        dest: 'build/img/'
-      },
-      html: {
-        expand: true,
-        cwd: 'src/',
-        src: ['*.html'],
-        dest: 'build/'
-      },
-      css_min: {
-        src: ['build/css/style.css'],
-        dest: 'build/css/style.min.css'
-      },
-      fonts: {
-        expand: true,
-        cwd: 'src/font/',
-        src: ['*.{eot,svg,woff,ttf}'],
-        dest: 'build/font/',
-      },
-    },
-
     // отслеживаем изменений
     watch: {
       style: {
-        files: ['src/sass/**/*.less'],
+        files: ['src/sass/**/*.sass'],
         tasks: ['style'],
         options: {
           spawn: false,
@@ -175,6 +172,7 @@ module.exports = function(grunt) {
           src : [
             'build/css/*.css',
             'build/js/*.js',
+            'build/fonts/**',
             'build/img/**/*.{png,jpg,gif,svg}',
             'build/*.html'
           ]
@@ -198,48 +196,45 @@ module.exports = function(grunt) {
 
   // базовый таск
   grunt.registerTask('default', [
+    'clean',
+    'copy'
+    'sass',
+    'cmq',
     'autoprefixer',
-    'copy:css_min',
+    'csscomb',
     'cssmin',
-    'copy:js',
     'uglify',
-    'copy:html',
-    'copy:img',
-    'copy:fonts',
-    'imagemin',
+    'imagemin'
     'browserSync',
     'watch'
   ]);
 
   // билдовый таск
   grunt.registerTask('build', [
-    'clean:build',
+    'clean',
+    'copy'
     'sass',
     'cmq',
-    'csscomb',
     'autoprefixer',
-    'copy:css_min',
+    'csscomb',
     'cssmin',
-    'copy:js',
     'uglify',
-    'copy:html',
-    'copy:img',
-    'copy:fonts',
     'imagemin'
-  ]);
-
-  // только js
-  grunt.registerTask('js', [
-    'uglify',
-    'copy:js_vendors',
-    'copy:js',
   ]);
 
   // только стили
   grunt.registerTask('style', [
     'sass',
+    'cmq',
     'autoprefixer',
+    'csscomb',
     'cssmin'
+  ]);
+
+  // только js
+  grunt.registerTask('js', [
+    'copy:js',
+    'uglify'
   ]);
 
   // только картики и стили
