@@ -21,11 +21,11 @@ module.exports = function(grunt) {
           sourceMap: true,
           sourceMapFilename: "build/css/style.css.map",
           sourceMapURL: 'style.css.map',
-          sourceMapRootpath: '../../',
+          sourceMapRootpath: '../../'
         },
         files: {
           'build/css/style.css': ['src/less/style.less']
-        },
+        }
       }
     },
 
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     autoprefixer: {
       options: {
         browsers: ['last 2 versions', 'ie 9'],
-        map: true,
+        map: true
       },
       style: {
         src: 'build/css/style.css'
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
         'build/css',
         'build/img',
         'build/js',
-        'build/*.html',
+        'build/*.html'
       ]
     },
 
@@ -90,29 +90,23 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'src/js/',
         src: ['**'],
-        dest: 'build/js/',
+        dest: 'build/js/'
       },
       img: {
         expand: true,
         cwd: 'src/img/',
         src: ['**/*.{png,jpg,gif,svg}'],
-        dest: 'build/img/',
+        dest: 'build/img/'
       },
       html: {
         expand: true,
         cwd: 'src/',
         src: ['*.html'],
-        dest: 'build/',
+        dest: 'build/'
       },
       css_min: {
         src: ['build/css/style.css'],
-        dest: 'build/css/style.min.css',
-      },
-      css_add: {
-        expand: true,
-        cwd: 'src/less/css/',
-        src: ['*.css'],
-        dest: 'build/css/',
+        dest: 'build/css/style.min.css'
       },
       fonts: {
         expand: true,
@@ -124,14 +118,6 @@ module.exports = function(grunt) {
 
     // отслеживаем изменений
     watch: {
-      jade: {
-        files: ['src/jade/pages/*.jade'],
-        tasks: ['jade'],
-        options: {
-          spawn: false,
-          livereload: true
-        },
-      },
       style: {
         files: ['src/less/**/*.less'],
         tasks: ['style'],
@@ -141,12 +127,12 @@ module.exports = function(grunt) {
         },
       },
       scripts: {
-        files: ['src/js/script.js'],
+        files: ['src/js/**/*.js'],
         tasks: ['js'],
         options: {
           spawn: false,
           livereload: true
-        },
+        }
       },
       images: {
         files: ['src/img/**/*.{png,jpg,gif,svg}'],
@@ -154,7 +140,7 @@ module.exports = function(grunt) {
         options: {
           spawn: false,
           livereload: true
-        },
+        }
       },
       html: {
         files: ['src/*.html'],
@@ -162,7 +148,7 @@ module.exports = function(grunt) {
         options: {
           spawn: false,
           livereload: true
-        },
+        }
       }
     },
 
@@ -171,17 +157,16 @@ module.exports = function(grunt) {
       dev: {
         bsFiles: {
           src : [
-            'src/jade/*.jade',
             'build/css/*.css',
             'build/js/*.js',
             'build/img/**/*.{png,jpg,gif,svg}',
-            'build/*.html',
+            'build/*.html'
           ]
         },
         options: {
           watchTask: true,
           server: {
-            baseDir: "build/",
+            baseDir: "build/"
           },
           startPath: "/index.html",
           ghostMode: {
@@ -223,7 +208,7 @@ module.exports = function(grunt) {
     'copy:html',
     'copy:img',
     'copy:fonts',
-    'imagemin',
+    'imagemin'
   ]);
 
   // только js
