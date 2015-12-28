@@ -47,7 +47,7 @@ module.exports = function(grunt) {
         cwd: 'src/font/',
         src: ['*.{eot,svg,woff,ttf}'],
         dest: 'build/font/',
-      },
+      }
     },
 
     sass: {
@@ -191,20 +191,19 @@ module.exports = function(grunt) {
         }
       }
     }
-
   });
 
   // базовый таск
   grunt.registerTask('default', [
     'clean',
-    'copy'
+    'copy',
     'sass',
     'cmq',
     'autoprefixer',
     'csscomb',
     'cssmin',
     'uglify',
-    'imagemin'
+    'imagemin',
     'browserSync',
     'watch'
   ]);
@@ -212,7 +211,7 @@ module.exports = function(grunt) {
   // билдовый таск
   grunt.registerTask('build', [
     'clean',
-    'copy'
+    'copy',
     'sass',
     'cmq',
     'autoprefixer',
