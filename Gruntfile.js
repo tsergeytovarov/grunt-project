@@ -11,24 +11,6 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.initConfig({
 
-    // компиляция less
-    less: {
-      style: {
-        options: {
-          compress: false,
-          yuicompress: false,
-          optimization: 2,
-          sourceMap: true,
-          sourceMapFilename: "build/css/style.css.map",
-          sourceMapURL: 'style.css.map',
-          sourceMapRootpath: '../../'
-        },
-        files: {
-          'build/css/style.css': ['src/less/style.less']
-        }
-      }
-    },
-
     // автопрефиксер
     autoprefixer: {
       options: {
@@ -119,7 +101,7 @@ module.exports = function(grunt) {
     // отслеживаем изменений
     watch: {
       style: {
-        files: ['src/less/**/*.less'],
+        files: ['src/sass/**/*.less'],
         tasks: ['style'],
         options: {
           spawn: false,
@@ -182,7 +164,6 @@ module.exports = function(grunt) {
 
   // базовый таск
   grunt.registerTask('default', [
-    'less',
     'autoprefixer',
     'copy:css_min',
     'cssmin',
@@ -199,7 +180,6 @@ module.exports = function(grunt) {
   // билдовый таск
   grunt.registerTask('build', [
     'clean:build',
-    'less',
     'autoprefixer',
     'copy:css_min',
     'cssmin',
@@ -220,7 +200,6 @@ module.exports = function(grunt) {
 
   // только стили
   grunt.registerTask('style', [
-    'less',
     'autoprefixer',
     'cssmin'
   ]);
@@ -229,7 +208,6 @@ module.exports = function(grunt) {
   grunt.registerTask('img', [
     'copy:img',
     'imagemin',
-    'less',
     'autoprefixer',
     'cssmin'
   ]);

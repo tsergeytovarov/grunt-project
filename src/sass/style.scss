@@ -1,0 +1,34 @@
+/*
+  Автор - Sergey Popov.
+  Сайт автора: http://ourworkspace.ru
+  Email: tovarov.piter@gmail.com
+  Из Санкт-Петербурга с любовью
+*/
+
+/*=== миксины слой ===*/
+
+@import "_mixins/mixin";
+
+
+
+/*=== базовый слой ===*/
+
+@import "base/__color";
+@import "base/__varible";
+@import "base/__normalize";
+@import "base/grid";
+@import "base/typography";
+@import "base/buttons";
+@import "base/forms";
+
+
+
+/*=== компоненты ===*/
+@import "components/header";
+@import "components/footer";
+
+
+
+/*=== страницы ===*/
+
+@import "pages/layout";

@@ -1,4 +1,4 @@
-@paddings: 10px; /* половина отступа между колонками */
+$paddings: 10px; /* половина отступа между колонками */
 
 .row{ /* строка */
 
@@ -12,11 +12,11 @@
       float: none;
 
       &:first-child{
-          padding: 0 @paddings;
+          padding: 0 $paddings;
       }
 
       &:last-child{
-          padding: 0 @paddings;
+          padding: 0 $paddings;
       }
     }
 
@@ -55,7 +55,7 @@
 .col{
   float: left;
   box-sizing: border-box;
-  padding: 0 @paddings;
+  padding: 0 $paddings;
   min-height: 1px;
 }
 
