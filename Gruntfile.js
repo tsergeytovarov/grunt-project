@@ -26,12 +26,6 @@ module.exports = function(grunt) {
 
     // копирование
     copy: {
-      js: {
-        expand: true,
-        cwd: 'src/js/',
-        src: ['**'],
-        dest: 'build/js/'
-      },
       img: {
         expand: true,
         cwd: 'src/img/',
@@ -106,6 +100,13 @@ module.exports = function(grunt) {
         files: {
           'build/css/style.min.css': ['build/css/style.css']
         }
+      }
+    },
+
+    concat: {
+      dist: {
+        src: ['src/js/*.js'],
+        dest: 'build/js/script.js'
       }
     },
 
@@ -211,6 +212,7 @@ module.exports = function(grunt) {
     'autoprefixer',
     'csscomb',
     'cssmin',
+    'concat',
     'uglify',
     'imagemin',
     'browserSync',
@@ -226,6 +228,7 @@ module.exports = function(grunt) {
     'autoprefixer',
     'csscomb',
     'cssmin',
+    'concat',
     'uglify',
     'imagemin',
     'htmllint'
@@ -242,7 +245,7 @@ module.exports = function(grunt) {
 
   // только js
   grunt.registerTask('js', [
-    'copy:js',
+    'concat',
     'uglify'
   ]);
 
