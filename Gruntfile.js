@@ -19,9 +19,17 @@ module.exports = function(grunt) {
         'build/css',
         'build/img',
         'build/js',
-        'build/font',
-        'build/*.html'
+        'build/font'
       ]
+    },
+
+    includereplace: {
+      htm: {
+        src: '*.html',
+        dest: 'build/',
+        expand: true,
+        cwd: 'src/'
+      }
     },
 
     // копирование
@@ -31,12 +39,6 @@ module.exports = function(grunt) {
         cwd: 'src/img/',
         src: ['**/*.{png,jpg,gif,svg}'],
         dest: 'build/img/'
-      },
-      html: {
-        expand: true,
-        cwd: 'src/',
-        src: ['*.html'],
-        dest: 'build/'
       },
       fonts: {
         expand: true,
@@ -166,8 +168,8 @@ module.exports = function(grunt) {
         }
       },
       html: {
-        files: ['src/*.html'],
-        tasks: ['copy:html'],
+        files: ['src/**/*.html'],
+        tasks: ['includereplace'],
         options: {
           spawn: false,
           livereload: true
@@ -184,7 +186,7 @@ module.exports = function(grunt) {
             'build/js/*.js',
             'build/fonts/**',
             'build/img/**/*.{png,jpg,gif,svg}',
-            'build/*.html'
+            'build/**/*.html'
           ]
         },
         options: {
@@ -206,6 +208,7 @@ module.exports = function(grunt) {
   // базовый таск
   grunt.registerTask('default', [
     'clean',
+    'includereplace',
     'copy',
     'sass',
     'cmq',
@@ -222,6 +225,7 @@ module.exports = function(grunt) {
   // билдовый таск
   grunt.registerTask('build', [
     'clean',
+    'includereplace',
     'copy',
     'sass',
     'cmq',
