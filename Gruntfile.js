@@ -45,6 +45,17 @@ module.exports = function(grunt) {
       }
     },
 
+    cmq: {
+      options: {
+        log: false
+      },
+      your_target: {
+        files: {
+          'build/css/style.css': ['build/css/style.css']
+        }
+      }
+    },
+
     // сжатие css
     cssmin: {
       style: {
@@ -204,6 +215,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:build',
     'sass',
+    'cmq',
     'csscomb',
     'autoprefixer',
     'copy:css_min',
