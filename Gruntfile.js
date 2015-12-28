@@ -11,6 +11,18 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.initConfig({
 
+    sass: {
+        dist: {
+          options: {
+            sourcemap: 'inline',
+            style: 'expanded'
+          },
+          files: {
+            'css/style.css': 'src/style.scss'
+          }
+        }
+      }
+
     // автопрефиксер
     autoprefixer: {
       options: {
