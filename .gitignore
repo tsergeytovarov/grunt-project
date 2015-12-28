@@ -1,4 +1,5 @@
 build
 node_modules
-psd
+*.psd
 npm-debug.log
+.DS_Store
