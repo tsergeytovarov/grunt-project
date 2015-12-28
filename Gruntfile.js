@@ -6,6 +6,8 @@
   From Saint-Petersburg with love
 */
 
+'use strict';
+
 module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
@@ -46,7 +48,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'src/font/',
         src: ['*.{eot,svg,woff,ttf}'],
-        dest: 'build/font/',
+        dest: 'build/font/'
       }
     },
 
@@ -137,7 +139,7 @@ module.exports = function(grunt) {
         options: {
           spawn: false,
           livereload: true
-        },
+        }
       },
       scripts: {
         files: ['src/js/**/*.js'],
@@ -169,7 +171,7 @@ module.exports = function(grunt) {
     browserSync: {
       dev: {
         bsFiles: {
-          src : [
+          src: [
             'build/css/*.css',
             'build/js/*.js',
             'build/fonts/**',
@@ -180,9 +182,9 @@ module.exports = function(grunt) {
         options: {
           watchTask: true,
           server: {
-            baseDir: "build/"
+            baseDir: 'build/'
           },
-          startPath: "/index.html",
+          startPath: '/index.html',
           ghostMode: {
             clicks: true,
             forms: true,
@@ -239,6 +241,6 @@ module.exports = function(grunt) {
   // только картики и стили
   grunt.registerTask('img', [
     'copy:img',
-    'imagemin',
+    'imagemin'
   ]);
 };
