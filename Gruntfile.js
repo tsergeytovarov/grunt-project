@@ -3,7 +3,7 @@
   Author URI: http://ourworkspace.ru
   Author social: https://vk.com/sergeytovarov
   Author email: tovarov.piter@gmail.com
-  From Saint-Petersburg with love
+  From Saint-Petersburg with love!
 */
 
 'use strict';
