@@ -1,6 +1,6 @@
 {
   "name": "grunt-project-template",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "license": "MIT",
   "description": "Template for frontend developer base on Grunt",
   "dependencies": {

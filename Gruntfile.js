@@ -1,6 +1,6 @@
 /*
   Author - Sergey Popov.
-  Author URI: http://ourworkspace.ru
+  Author URI: http://sergeypopov.name
   Author social: https://vk.com/sergeytovarov
   Author email: tovarov.piter@gmail.com
   From Saint-Petersburg with love!
