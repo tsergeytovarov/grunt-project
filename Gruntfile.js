@@ -23,15 +23,6 @@ module.exports = function(grunt) {
       ]
     },
 
-    includereplace: {
-      htm: {
-        src: '*.html',
-        dest: 'build/',
-        expand: true,
-        cwd: 'src/'
-      }
-    },
-
     // копирование
     copy: {
       img: {
@@ -45,6 +36,12 @@ module.exports = function(grunt) {
         cwd: 'src/font/',
         src: ['*.{eot,svg,woff,ttf}'],
         dest: 'build/font/'
+      },
+      html: {
+        expand: true,
+        cwd: 'src/',
+        src: ['*.{html}'],
+        dest: 'build/'
       }
     },
 
@@ -63,7 +60,7 @@ module.exports = function(grunt) {
     // автопрефиксер
     autoprefixer: {
       options: {
-        browsers: ['last 2 versions', 'ie 9'],
+        browsers: ['last 15 versions', 'ie 9', 'ie 10'],
         map: true
       },
       style: {
@@ -74,7 +71,7 @@ module.exports = function(grunt) {
     csscomb: {
       style: {
         options: {
-          config: 'csscomb.json'
+          config: '.csscomb.json'
         },
         files: {
           'build/css/style.css': ['build/css/style.css']
@@ -125,20 +122,13 @@ module.exports = function(grunt) {
     imagemin: {
       build: {
         options: {
-          optimizationLevel: 3
+          optimizationLevel: 4
         },
         files: [{
           expand: true,
           src: ['build/img/*.{png,jpg,gif,svg}']
         }]
       }
-    },
-
-    htmllint: {
-      options: {
-        force: true
-      },
-      all: ['build/**/*.html']
     },
 
     // отслеживаем изменений
@@ -169,7 +159,15 @@ module.exports = function(grunt) {
       },
       html: {
         files: ['src/**/*.html'],
-        tasks: ['includereplace'],
+        tasks: ['copy:html'],
+        options: {
+          spawn: false,
+          livereload: true
+        }
+      },
+      fonts: {
+        files: ['src/font/*.{eot,svg,woff,ttf}'],
+        tasks: ['copy:fonts'],
         options: {
           spawn: false,
           livereload: true
@@ -208,7 +206,6 @@ module.exports = function(grunt) {
   // базовый таск
   grunt.registerTask('default', [
     'clean',
-    'includereplace',
     'copy',
     'sass',
     'cmq',
@@ -225,7 +222,6 @@ module.exports = function(grunt) {
   // билдовый таск
   grunt.registerTask('build', [
     'clean',
-    'includereplace',
     'copy',
     'sass',
     'cmq',
@@ -234,8 +230,7 @@ module.exports = function(grunt) {
     'cssmin',
     'concat',
     'uglify',
-    'imagemin',
-    'htmllint'
+    'imagemin'
   ]);
 
   // только стили

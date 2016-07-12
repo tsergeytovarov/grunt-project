@@ -15,32 +15,8 @@
 
 $base-font: Arial, sans-serif;
 
-body{
+body {
   font-family: $base-font;
   font-size: 14px;
   line-height: 20px;
-}
-
-strong,
-b{
-  font-weight: 600;
-}
-
-a{
-
-  &:hover{
-
-  }
-}
-
-ul{
-    li{
-
-    }
-}
-
-table{
-  td{
-
-  }
 }
