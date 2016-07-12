@@ -71,7 +71,7 @@ module.exports = function(grunt) {
     csscomb: {
       style: {
         options: {
-          config: 'csscomb.json'
+          config: '.csscomb.json'
         },
         files: {
           'build/css/style.css': ['build/css/style.css']
