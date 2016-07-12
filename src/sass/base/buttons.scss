@@ -1,16 +1,16 @@
-.btn{
+.btn {
   display: inline-block;
-  vertical-align: top;
   box-sizing: border-box;
-  text-align: center;
-  text-decoration: none;
   cursor: pointer;
+  text-align: center;
+  vertical-align: top;
+  text-decoration: none;
 
-  &:hover{
+  &:hover {
     opacity: 0.8;
   }
 
-  &:active{
+  &:active {
     opacity: 1;
   }
 }

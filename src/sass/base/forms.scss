@@ -1,31 +1,27 @@
-input[type='text'],
+input[type="text"],
 textarea,
 select,
-input[type='password']{ /* поля */
+input[type="password"] {
   box-sizing: border-box;
-  outline: none;
   width: 100%;
+  outline: none;
+  font-family: $base-font;
   font-size: 18px;
   line-height: 20px;
-  font-family: $base-font;
-
-  &:focus{
-
-  }
 }
 
-label{
+label {
   cursor: pointer;
 }
 
-button{
-  cursor: pointer;
+button {
   outline: none;
+  cursor: pointer;
 }
 
-input::-webkit-input-placeholder{
+input::-webkit-input-placeholder {
   opacity: 0.8;
 }
-input::-moz-placeholde{
+input::-moz-placeholde {
   opacity: 0.8;
 }
