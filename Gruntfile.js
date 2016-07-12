@@ -116,7 +116,7 @@ module.exports = function(grunt) {
     imagemin: {
       build: {
         options: {
-          optimizationLevel: 3
+          optimizationLevel: 4
         },
         files: [{
           expand: true,
