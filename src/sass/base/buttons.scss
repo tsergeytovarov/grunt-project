@@ -6,26 +6,11 @@
   text-decoration: none;
   cursor: pointer;
 
-  &:hover,
-  &--hover{
-
+  &:hover{
+    opacity: 0.8;
   }
 
-  &:active,
-  &--active{
-
-  }
-
-  &--modify{
-
-    &:hover,
-    &--hover{
-
-    }
-
-    &:active,
-    &--active{
-
-    }
+  &:active{
+    opacity: 1;
   }
 }
