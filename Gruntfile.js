@@ -36,6 +36,12 @@ module.exports = function(grunt) {
         cwd: 'src/font/',
         src: ['*.{eot,svg,woff,ttf}'],
         dest: 'build/font/'
+      },
+      html: {
+        expand: true,
+        cwd: 'src/',
+        src: ['*.{html}'],
+        dest: 'build/'
       }
     },
 
@@ -153,7 +159,7 @@ module.exports = function(grunt) {
       },
       html: {
         files: ['src/**/*.html'],
-        tasks: ['includereplace'],
+        tasks: ['copy:html'],
         options: {
           spawn: false,
           livereload: true
