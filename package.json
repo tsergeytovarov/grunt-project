@@ -1,8 +1,8 @@
 {
   "name": "grunt-project-template",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "license": "MIT",
-  "description": "Template for frontend developer base on Grunt",
+  "description": "Базовый шаблон, для начала работы над проектом на базе сборщика Grunt.",
   "dependencies": {
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^1.0",
