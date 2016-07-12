@@ -164,6 +164,14 @@ module.exports = function(grunt) {
           spawn: false,
           livereload: true
         }
+      },
+      fonts: {
+        files: ['src/font/*.{eot,svg,woff,ttf}'],
+        tasks: ['copy:fonts'],
+        options: {
+          spawn: false,
+          livereload: true
+        }
       }
     },
 
