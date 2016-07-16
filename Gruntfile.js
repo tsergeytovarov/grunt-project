@@ -219,18 +219,15 @@ module.exports = function(grunt) {
     }
   });
 
-  // базовый таск
+  // таск разработки
   grunt.registerTask('default', [
     'clean',
     'copy',
     'sass',
-    'cmq',
     'autoprefixer',
-    'csscomb',
     'cssmin',
     'concat',
     'uglify',
-    'imagemin',
     'browserSync',
     'watch'
   ]);
@@ -239,9 +236,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean',
     'copy',
-    'htmllint',
     'sass',
-    'csslint',
     'cmq',
     'autoprefixer',
     'csscomb',
@@ -249,6 +244,12 @@ module.exports = function(grunt) {
     'concat',
     'uglify',
     'imagemin'
+  ]);
+
+  // проверочный таск после билда
+  grunt.registerTask('lint', [
+    'htmllint',
+    'csslint'
   ]);
 
   // только стили
