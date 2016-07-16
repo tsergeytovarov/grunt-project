@@ -45,6 +45,10 @@ module.exports = function(grunt) {
       }
     },
 
+    htmllint: {
+      all: ["build/*.html"]
+    },
+
     sass: {
       dist: {
         options: {
@@ -235,6 +239,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean',
     'copy',
+    'htmllint',
     'sass',
     'csslint',
     'cmq',
