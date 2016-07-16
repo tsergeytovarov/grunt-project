@@ -45,6 +45,10 @@ module.exports = function(grunt) {
       }
     },
 
+    htmllint: {
+      all: ["build/*.html"]
+    },
+
     sass: {
       dist: {
         options: {
@@ -87,6 +91,18 @@ module.exports = function(grunt) {
         files: {
           'build/css/style.css': ['build/css/style.css']
         }
+      }
+    },
+
+    csslint: {
+      options: {
+        csslintrc: '.stylelinterc'
+      },
+      strict: {
+        options: {
+          import: 2
+        },
+        src: ['build/css/style.css']
       }
     },
 
@@ -203,18 +219,15 @@ module.exports = function(grunt) {
     }
   });
 
-  // базовый таск
+  // таск разработки
   grunt.registerTask('default', [
     'clean',
     'copy',
     'sass',
-    'cmq',
     'autoprefixer',
-    'csscomb',
     'cssmin',
     'concat',
     'uglify',
-    'imagemin',
     'browserSync',
     'watch'
   ]);
@@ -231,6 +244,12 @@ module.exports = function(grunt) {
     'concat',
     'uglify',
     'imagemin'
+  ]);
+
+  // проверочный таск после билда
+  grunt.registerTask('lint', [
+    'htmllint',
+    'csslint'
   ]);
 
   // только стили
