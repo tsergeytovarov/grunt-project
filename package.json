@@ -1,6 +1,6 @@
 {
   "name": "grunt-project-template",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "license": "MIT",
   "description": "Базовый шаблон, для начала работы над проектом на базе сборщика Grunt.",
   "dependencies": {
