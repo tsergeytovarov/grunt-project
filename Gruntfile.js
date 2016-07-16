@@ -90,6 +90,18 @@ module.exports = function(grunt) {
       }
     },
 
+    csslint: {
+      options: {
+        csslintrc: '.stylelinterc'
+      },
+      strict: {
+        options: {
+          import: 2
+        },
+        src: ['build/css/style.css']
+      }
+    },
+
     // сжатие css
     cssmin: {
       style: {
@@ -224,6 +236,7 @@ module.exports = function(grunt) {
     'clean',
     'copy',
     'sass',
+    'csslint',
     'cmq',
     'autoprefixer',
     'csscomb',

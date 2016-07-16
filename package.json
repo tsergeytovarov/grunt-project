@@ -17,6 +17,7 @@
     "grunt-csscomb": "^3.1.1",
     "grunt-combine-media-queries": "^1.0.20",
     "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-csslint": "^1.0.0",
     "load-grunt-tasks": "^3.5.0"
   },
   "repository": {
