@@ -1,9 +1,9 @@
 /*
   Author - Sergey Popov.
   Author URI: http://sergeypopov.name
-  Author social: https://vk.com/sergeytovarov
+  Author social: https://www.facebook.com/sergeytovarov
   Author email: tovarov.piter@gmail.com
-  From Saint-Petersburg with love!
+  From Russia with love!
 */
 
 'use strict';
@@ -13,7 +13,6 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.initConfig({
 
-    // очистка дирректории
     clean: {
       build: [
         'build/css',
@@ -23,7 +22,6 @@ module.exports = function(grunt) {
       ]
     },
 
-    // копирование
     copy: {
       img: {
         expand: true,
@@ -61,7 +59,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // автопрефиксер
     autoprefixer: {
       options: {
         browsers: ['last 15 versions', 'ie 9', 'ie 10'],
@@ -106,7 +103,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // сжатие css
     cssmin: {
       style: {
         options: {
@@ -125,7 +121,18 @@ module.exports = function(grunt) {
       }
     },
 
-    //сжатие js
+    babel: {
+      options: {
+        sourceMap: true,
+        presets: ['babel-preset-es2015']
+      },
+      dist: {
+        files: {
+          'build/js/script.js': 'build/js/script.js'
+        }
+      }
+    },
+
     uglify: {
       start: {
         files: {
@@ -134,7 +141,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // оптимизация графики
     imagemin: {
       build: {
         options: {
@@ -147,7 +153,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // отслеживаем изменений
     watch: {
       style: {
         files: ['src/sass/**/*.scss'],
@@ -191,7 +196,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // автоперезагрузка
     browserSync: {
       dev: {
         bsFiles: {
@@ -219,7 +223,6 @@ module.exports = function(grunt) {
     }
   });
 
-  // таск разработки
   grunt.registerTask('default', [
     'clean',
     'copy',
@@ -227,12 +230,12 @@ module.exports = function(grunt) {
     'autoprefixer',
     'cssmin',
     'concat',
+    'babel',
     'uglify',
     'browserSync',
     'watch'
   ]);
 
-  // билдовый таск
   grunt.registerTask('build', [
     'clean',
     'copy',
@@ -242,17 +245,16 @@ module.exports = function(grunt) {
     'csscomb',
     'cssmin',
     'concat',
+    'babel',
     'uglify',
     'imagemin'
   ]);
 
-  // проверочный таск после билда
   grunt.registerTask('lint', [
     'htmllint',
     'csslint'
   ]);
 
-  // только стили
   grunt.registerTask('style', [
     'sass',
     'cmq',
@@ -261,13 +263,12 @@ module.exports = function(grunt) {
     'cssmin'
   ]);
 
-  // только js
   grunt.registerTask('js', [
     'concat',
+    'babel',
     'uglify'
   ]);
 
-  // только картики и стили
   grunt.registerTask('img', [
     'copy:img',
     'imagemin'
