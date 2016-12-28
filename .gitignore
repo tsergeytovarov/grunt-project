@@ -4,3 +4,4 @@ node_modules/
 *.psd
 .sass-cache/
 .DS_Store
+yarn.lock
